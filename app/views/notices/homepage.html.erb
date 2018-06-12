@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<div class="col-xs-4">
+  <% @notices.all.each do |notice| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2><%= notice.subject %></h2>
+      </div>
+      <div class="panel-body">
+        <p><%= notice.text %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

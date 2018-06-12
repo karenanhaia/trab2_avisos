@@ -1,6 +1,8 @@
-<h1>Editing Notice</h1>
+<div class="col-xs-4">
+  <h1>Editar Aviso</h1>
 
-<%= render 'form', notice: @notice %>
+  <%= render 'form', notice: @notice %>
 
-<%= link_to 'Show', @notice %> |
-<%= link_to 'Back', notices_path %>
+  <%= link_to 'Mostrar', @notice, :class => "btn btn-info" %>
+  <%= link_to 'Voltar', notices_path, :class => "btn btn-primary" %>
+</div>

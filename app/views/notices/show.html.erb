@@ -1,14 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Subject:</strong>
-  <%= @notice.subject %>
-</p>
+<div class="col-xs-4">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2><%= @notice.subject %></h2>
+    </div>
+    <div class="panel-body">
+      <p><%= @notice.text %></p>
+    </div>
+  </div>
 
-<p>
-  <strong>Text:</strong>
-  <%= @notice.text %>
-</p>
+  <%= link_to 'Editar', edit_notice_path(@notice), :class => "btn btn-warning" %>
+  <%= link_to 'Voltar', notices_path, :class => "btn btn-primary" %>
+</div>
 
-<%= link_to 'Edit', edit_notice_path(@notice) %> |
-<%= link_to 'Back', notices_path %>
