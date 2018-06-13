@@ -28,15 +28,12 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
-    user ||= User.new # guest user (not logged in)
-      if user.admin?
-        can :manage, :all
-      else
-        can :read, :all
-      end
 
-      can :manage, Notice do |notice|
-        notice.user == user
-      end
+    can :show, User, :id => user.id
+
+    can :manage, Notice do |notice|
+        notice.new_record? or notice.user == user
+    end
+
   end
 end

@@ -6,7 +6,7 @@ class NoticesController < ApplicationController
   # GET /notices
   # GET /notices.json
   def index
-    @notices = Notice.all
+    @notices = Notice.all.order("created_at desc")
   end
 
   def homepage
@@ -32,6 +32,7 @@ class NoticesController < ApplicationController
   # POST /notices.json
   def create
     @notice = Notice.new(notice_params)
+    @notice.user = current_user
 
     respond_to do |format|
       if @notice.save
@@ -76,6 +77,6 @@ class NoticesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def notice_params
-      params.require(:notice).permit(:subject, :text)
+      params.require(:notice).permit(:subject, :text, :user_id)
     end
 end
