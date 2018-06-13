@@ -1,13 +1,15 @@
 
-<div class="col-xs-4">
-  <% @notices.all.each do |notice| %>
+<% @notices.all.each do |notice| %>
+  <div class="col-xs-8">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h2><%= notice.subject %></h2>
+        <small>Autor: <%= notice.user.email %></small><br>
+        <small>Data: <%=notice.created_at %></small>
       </div>
       <div class="panel-body">
         <p><%= notice.text %></p>
       </div>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
